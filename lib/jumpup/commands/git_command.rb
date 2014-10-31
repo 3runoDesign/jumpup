@@ -20,6 +20,23 @@ module Jumpup
         sh 'git push --quiet'
       end
 
+      def store_last_commit_hash
+        Jumpup::UI.say '  --> Storing last commit hash...'.yellow
+        @@last_commit_hash = last_commit_hash
+      end
+
+      def check_last_commit_change
+        Jumpup::UI.say '  --> Checking if last commit changed since integration started...'.yellow
+        if last_commit_hash != stored_commit_hash
+          Jumpup::UI.say "  --> Last commit changed since integration started. Halting!".red
+          exit
+        end
+      end
+
+      def reset_commit_hash!
+        @@last_commit_hash = ''
+      end
+
       def check_integration
         Jumpup::UI.say "  --> Checking if there's someone integrating...".yellow
         Jumpup::UI.say `git tag -d integrating`
@@ -58,6 +75,14 @@ module Jumpup
 
       def user
         @user = `git config --get user.name`.strip
+      end
+
+      def last_commit_hash
+        `git rev-parse HEAD`.strip
+      end
+
+      def stored_commit_hash
+        @@last_commit_hash ||= ''
       end
     end
   end

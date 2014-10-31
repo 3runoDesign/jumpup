@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.8 (unreleased)
+
+### features
+- Abort integration if a new commit appears between spec and push tasks. You can use it running `git:store_last_commit_hash` on the beginning of integration (already on `jumpup:start`) and `git:check_last_commit_change` before pushing.
+
+### improvements
+
+### bug fixes
+
 ## 0.0.7 (September 15, 2014)
 
 ### features
