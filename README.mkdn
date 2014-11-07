@@ -28,7 +28,7 @@ INTEGRATION_TASKS = %w(
   jumpup:bundle_install
   db:migrate
   spec
-  git:check_last_commit_change
+  jumpup:git:check_last_commit_change
   jumpup:finish
 )
 ```
@@ -101,7 +101,7 @@ INTEGRATION_TASKS = %w(
   jumpup:start
   jumpup:bundle_install
   db:migrate
-  git:check_last_commit_change
+  jumpup:git:check_last_commit_change
   jumpup:finish
 )
 ```
@@ -118,7 +118,7 @@ INTEGRATION_TASKS = %w(
   jumpup:bundle_install
   db:migrate
   spec
-  git:check_last_commit_change
+  jumpup:git:check_last_commit_change
   jumpup:finish
 )
 ```
