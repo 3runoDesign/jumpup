@@ -15,6 +15,16 @@ namespace :jumpup do
     task :push do
       Jumpup::GitCommand.push
     end
+
+    desc 'Stores last commit hash'
+    task :store_last_commit_hash do
+      Jumpup::GitCommand.store_last_commit_hash
+    end
+
+    desc 'Verifies if last commit changed'
+    task :check_last_commit_change do
+      Jumpup::GitCommand.check_last_commit_change
+    end
   end
 
   namespace :integration do
@@ -34,7 +44,7 @@ namespace :jumpup do
     end
   end
 
-  task start: ['integration:check', 'integration:lock', 'git:status_check', 'log:clear', 'tmp:clear', 'git:pull'] do
+  task start: ['integration:check', 'integration:lock', 'git:status_check', 'log:clear', 'tmp:clear', 'git:pull', 'git:store_last_commit_hash'] do
     ENV['coverage'] = 'on'
   end
   task finish: ['git:push', 'integration:unlock']
