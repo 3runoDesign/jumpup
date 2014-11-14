@@ -129,6 +129,12 @@ SimpleCov.start 'rails' do
 end
 ```
 
+#### Skip spec
+
+Sometimes we have to change some configuration and deploy as fast as possible. It is possible setting the environment variable `SKIP_SPEC=1` to skip specs.
+
+```SKIP_SPEC=1 rake integrate```
+
 ## Versioning
 
 Jumpup follows the [Semantic Versioning](http://semver.org/).

@@ -35,10 +35,15 @@ module Jumpup
 
     def invoke_tasks
       INTEGRATION_TASKS.each do |subtask|
+        next if skip_spec?(subtask)
         Jumpup::UI.header("--> Executing #{subtask}...".white) do
           Rake::Task[subtask].invoke
         end
       end
+    end
+
+    def skip_spec?(task)
+      task == 'spec' && ENV['SKIP_SPEC'] == '1'
     end
   end
 end
