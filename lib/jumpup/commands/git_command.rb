@@ -13,7 +13,7 @@ module Jumpup
       end
 
       def pull
-        sh 'git pull --rebase --quiet'
+        sh 'git pull --quiet'
       end
 
       def push
