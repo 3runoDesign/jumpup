@@ -134,7 +134,7 @@ SimpleCov.start 'rails' do
 end
 ```
 
-#### Tired of debate coding standards?
+#### Tired of debating coding standards?
 
 Do your team agree with [this Ruby styleguide](https://github.com/bbatsov/ruby-style-guide)? (or at least most of it) Good! Now you can make sure that everyone is following it by installing [rubocop](https://github.com/bbatsov/rubocop) on your app and then making sure that you [enabled their rake tasks](https://github.com/bbatsov/rubocop#rake-integration) and added it to your integrate tasks list:
 
